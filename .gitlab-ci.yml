@@ -3,7 +3,7 @@ stages:
 
 semantic_release:
   stage: tag
-  image: node:10.18
+  image: node:10.19
   variables:
     GITLAB_TOKEN: $ACCESS_TOKEN
   before_script:
