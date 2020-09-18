@@ -1,0 +1,10 @@
+ext {
+    //Android
+    androidBuildToolsVersion = "30.0.0"
+    androidMinSdkVersion = 21
+    androidTargetSdkVersion = 30
+    androidCompileSdkVersion = 30
+    kotlinVersion = "1.4.10"
+
+
+}
