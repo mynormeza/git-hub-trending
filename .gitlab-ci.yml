@@ -1,0 +1,18 @@
+stages:
+  - tag
+
+semantic_release:
+  stage: tag
+  image: node:10.18
+  variables:
+    GITLAB_TOKEN: $ACCESS_TOKEN
+  before_script:
+    - npm install -g semantic-release @semantic-release/gitlab-config @semantic-release/git
+    - npm npm install @semantic-release/gitlab -D
+    - cat $SEM_RELEASE_OPTIONS > .releaserc.yml
+  script:
+    - semantic-release -e @semantic-release/gitlab-config
+  only:
+    - master
+    - next
+    - beta
