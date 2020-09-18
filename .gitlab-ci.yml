@@ -7,11 +7,11 @@ semantic_release:
   variables:
     GITLAB_TOKEN: $ACCESS_TOKEN
   before_script:
-    - npm install -g semantic-release @semantic-release/gitlab-config @semantic-release/git
+    - npm install -g semantic-release @semantic-release/git @semantic-release/gitlab
     - npm install @semantic-release/changelog -D
     - cat $SEM_RELEASE_OPTIONS > .releaserc.yml
   script:
-    - semantic-release -e @semantic-release/gitlab-config
+    - semantic-release
   only:
     - master
     - next
