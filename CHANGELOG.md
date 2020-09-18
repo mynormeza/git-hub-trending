@@ -1,3 +1,10 @@
+# [1.1.0](https://gitlab.com/mynormeza92/git-hub-trending/compare/v1.0.1...v1.1.0) (2020-09-18)
+
+
+### Features
+
+* **Domain module:** set up and finsh domain module ([cc750b8](https://gitlab.com/mynormeza92/git-hub-trending/commit/cc750b8d6b1b96475958c4af28704e0f6669f040))
+
 ## [1.0.1](https://gitlab.com/mynormeza92/git-hub-trending/compare/v1.0.0...v1.0.1) (2020-09-18)
 
 
