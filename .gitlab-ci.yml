@@ -8,7 +8,7 @@ semantic_release:
     GITLAB_TOKEN: $ACCESS_TOKEN
   before_script:
     - npm install -g semantic-release @semantic-release/gitlab-config @semantic-release/git
-    - npm npm install @semantic-release/gitlab -D
+    - npm install @semantic-release/gitlab -D
     - cat $SEM_RELEASE_OPTIONS > .releaserc.yml
   script:
     - semantic-release -e @semantic-release/gitlab-config
