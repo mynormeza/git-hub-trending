@@ -1,4 +1,4 @@
-package com.mynormeza.domain.interactor
+package com.mynormeza.domain.interactor.browse
 
 import com.mynormeza.domain.executor.PostExecutionThread
 import com.mynormeza.domain.interactor.browse.GetProjects
