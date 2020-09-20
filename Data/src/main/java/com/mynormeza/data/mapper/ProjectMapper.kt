@@ -4,7 +4,7 @@ import com.mynormeza.data.model.ProjectEntity
 import com.mynormeza.domain.model.Project
 import javax.inject.Inject
 
-class ProjectMapper @Inject constructor(): EntityMapper<ProjectEntity, Project> {
+open class ProjectMapper @Inject constructor(): EntityMapper<ProjectEntity, Project> {
     override fun mapFromEntity(entity: ProjectEntity) = Project(entity.id, entity.name,
         entity.fullName, entity.starCount, entity.dateCreated, entity.ownerName,
         entity.ownerAvatar, entity.isBookmarked)

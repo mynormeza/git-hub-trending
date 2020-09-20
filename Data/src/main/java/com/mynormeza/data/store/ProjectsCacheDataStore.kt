@@ -7,7 +7,7 @@ import io.reactivex.Completable
 import io.reactivex.Observable
 import javax.inject.Inject
 
-class ProjectsCacheDataStore @Inject constructor(
+open class ProjectsCacheDataStore @Inject constructor(
     private val projectsCache: ProjectsCache
 ): ProjectsDataStore {
     override fun getProjects(): Observable<List<ProjectEntity>> {
@@ -19,11 +19,11 @@ class ProjectsCacheDataStore @Inject constructor(
     }
 
     override fun setProjectAsBookmarked(projectId: String): Completable {
-        return projectsCache.setProjectAsBookmark(projectId)
+        return projectsCache.setProjectAsBookmarked(projectId)
     }
 
     override fun setProjectAsNotBookmarked(projectId: String): Completable {
-        return projectsCache.setProjectAsNotBookmark(projectId)
+        return projectsCache.setProjectAsNotBookmarked(projectId)
     }
 
     override fun saveProjects(projects: List<ProjectEntity>): Completable {
