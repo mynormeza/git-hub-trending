@@ -1,3 +1,10 @@
+# [1.2.0](https://gitlab.com/mynormeza92/git-hub-trending/compare/v1.1.0...v1.2.0) (2020-09-20)
+
+
+### Features
+
+* **Data Module:** Add data module with tests ([c46d44e](https://gitlab.com/mynormeza92/git-hub-trending/commit/c46d44e5623b6440439b987c213121adeb0cedf4))
+
 # [1.1.0](https://gitlab.com/mynormeza92/git-hub-trending/compare/v1.0.1...v1.1.0) (2020-09-18)
 
 
