@@ -3,7 +3,6 @@ apply plugin: 'kotlin'
 dependencies {
     def remoteDependencies = rootProject.ext.remoteDependencies
     def remoteTestDependencies = rootProject.ext.remoteTestDependencies
-
     compile project(':Data')
 
     implementation remoteDependencies.javaxAnnotation
@@ -23,5 +22,5 @@ dependencies {
     implementation remoteTestDependencies.assertj
 }
 
-sourceCompatibility = "1.7"
-targetCompatibility = "1.7"
+sourceCompatibility = "1.8"
+targetCompatibility = "1.8"
