@@ -13,7 +13,7 @@ class ProjectsRemoteImpl @Inject constructor(
 ): ProjectsRemote {
 
     override fun getProjects(): Observable<List<ProjectEntity>> {
-        return service.searchRepositories("languaje:kotlin", "stars", "desc")
+        return service.searchRepositories("language:kotlin", "stars", "desc")
             .map {
                 it.items.map {
                     mapper.mapFromModel(it) }
