@@ -10,11 +10,13 @@ ext {
     rxKotlinVersion = '2.4.0'
     javaxAnnotationVersion = '1.0'
     javaxInjectVersion = '1'
-    androidAnnotationsVersion = '28.0.0'
+    androidAnnotationsVersion = '1.1.0'
     daggerVersion = '2.29.1'
     gsonVersion = '2.8.6'
     okHttpVersion = '4.9.0'
     retrofitVersion = '2.9.0'
+    archTestingVersion = '2.1.0'
+    roomVersion = '2.2.5'
 
     //testing
     jUnitVersion = '4.12'
@@ -57,7 +59,7 @@ ext {
             javaxInject: "javax.inject:javax.inject:${javaxInjectVersion}",
             rxKotlin: "io.reactivex.rxjava2:rxkotlin:${rxKotlinVersion}",
             kotlin: "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${kotlinVersion}",
-            androidAnnotations: "com.android.support:support-annotations:${androidAnnotationsVersion}",
+            androidAnnotations: "androidx.annotation:annotation:${androidAnnotationsVersion}",
             okHttp: "com.squareup.okhttp3:okhttp:${okHttpVersion}",
             okHttpLogger: "com.squareup.okhttp3:logging-interceptor:${okHttpVersion}",
             retrofit: "com.squareup.retrofit2:retrofit:${retrofitVersion}",
@@ -70,7 +72,29 @@ ext {
             mockito: "com.nhaarman.mockitokotlin2:mockito-kotlin:${mockitoKotlinVersion}",
             assertj: "org.assertj:assertj-core:${assertJVersion}",
             kotlinJUnit: "org.jetbrains.kotlin:kotlin-test-junit:${kotlinVersion}",
+    ]
+
+    cacheDependencies = [
+            daggerCompiler: "com.google.dagger:dagger-compiler:${daggerVersion}",
+            dagger: "com.google.dagger:dagger:${daggerVersion}",
+            gson: "com.google.code.gson:gson:${gsonVersion}",
+            javaxAnnotation: "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
+            javaxInject: "javax.inject:javax.inject:${javaxInjectVersion}",
+            rxKotlin: "io.reactivex.rxjava2:rxkotlin:${rxKotlinVersion}",
+            kotlin: "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${kotlinVersion}",
+            androidAnnotations: "androidx.annotation:annotation:${androidAnnotationsVersion}",
+            roomRuntime: "androidx.room:room-runtime:${roomVersion}",
+            roomCompiler: "androidx.room:room-compiler:${roomVersion}",
+    ]
+
+    cacheTestDependencies = [
+            junit: "junit:junit:${jUnitVersion}",
+            mockito: "com.nhaarman.mockitokotlin2:mockito-kotlin:${mockitoKotlinVersion}",
+            assertj: "org.assertj:assertj-core:${assertJVersion}",
+            kotlinJUnit: "org.jetbrains.kotlin:kotlin-test-junit:${kotlinVersion}",
             androidTestRunner: "androidx.test:runner:${androidTestRunnerVersion}",
-            androidTestRules: "androidx.test:rules:${androidTestRulesVersion}"
+            androidTestRules: "androidx.test:rules:${androidTestRulesVersion}",
+            archTesting: "androidx.arch.core:core-testing:${archTestingVersion}",
+            roomTesting: "androidx.room:room-testing:${roomVersion}"
     ]
 }
