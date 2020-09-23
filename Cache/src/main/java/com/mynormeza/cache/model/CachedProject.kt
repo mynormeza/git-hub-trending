@@ -13,5 +13,5 @@ class CachedProject(
     val dateCreated: String,
     val ownerName: String,
     val ownerAvatar: String,
-    @ColumnInfo(name = "is_bookmarked") val isBookmarked: Boolean
+    @ColumnInfo(name = "is_bookmarked") var isBookmarked: Boolean
 )

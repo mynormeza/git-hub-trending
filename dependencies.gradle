@@ -22,7 +22,7 @@ ext {
     jUnitVersion = '4.12'
     assertJVersion = '3.17.2'
     mockitoKotlinVersion = '2.2.0'
-    robolectricVersion = '4.3'
+    robolectricVersion = '4.4'
     androidTestRunnerVersion = '1.1.0'
     androidTestRulesVersion = '1.1.0'
 
@@ -49,7 +49,6 @@ ext {
             junit: "junit:junit:${jUnitVersion}",
             mockito: "com.nhaarman.mockitokotlin2:mockito-kotlin:${mockitoKotlinVersion}",
             assertj: "org.assertj:assertj-core:${assertJVersion}",
-            robolectric: "org.robolectric:robolectric:${robolectricVersion}",
             kotlinJUnit: "org.jetbrains.kotlin:kotlin-test-junit:${kotlinVersion}"
     ]
 
@@ -85,6 +84,7 @@ ext {
             androidAnnotations: "androidx.annotation:annotation:${androidAnnotationsVersion}",
             roomRuntime: "androidx.room:room-runtime:${roomVersion}",
             roomCompiler: "androidx.room:room-compiler:${roomVersion}",
+            roomRxJava: "androidx.room:room-rxjava2:${roomVersion}",
     ]
 
     cacheTestDependencies = [
@@ -95,6 +95,7 @@ ext {
             androidTestRunner: "androidx.test:runner:${androidTestRunnerVersion}",
             androidTestRules: "androidx.test:rules:${androidTestRulesVersion}",
             archTesting: "androidx.arch.core:core-testing:${archTestingVersion}",
-            roomTesting: "androidx.room:room-testing:${roomVersion}"
+            roomTesting: "androidx.room:room-testing:${roomVersion}",
+            robolectric: "org.robolectric:robolectric:${robolectricVersion}",
     ]
 }

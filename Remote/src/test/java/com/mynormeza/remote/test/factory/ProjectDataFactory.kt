@@ -1,7 +1,6 @@
 package com.mynormeza.remote.test.factory
 
 import com.mynormeza.data.model.ProjectEntity
-import com.mynormeza.domain.model.Project
 import com.mynormeza.remote.model.OwnerModel
 import com.mynormeza.remote.model.ProjectModel
 import com.mynormeza.remote.model.ProjectsResponseModel

@@ -4,15 +4,15 @@ import com.mynormeza.cache.model.CachedProject
 import com.mynormeza.data.model.ProjectEntity
 
 class CachedProjectMapper: CacheMapper<CachedProject, ProjectEntity> {
-    override fun mapFromCache(cachedProject: CachedProject): ProjectEntity {
-        return ProjectEntity(cachedProject.id, cachedProject.name, cachedProject.fullName,
-            cachedProject.starCount, cachedProject.dateCreated, cachedProject.ownerName,
-            cachedProject.ownerAvatar, cachedProject.isBookmarked)
+    override fun mapFromCache(type: CachedProject): ProjectEntity {
+        return ProjectEntity(type.id, type.name, type.fullName,
+            type.starCount, type.dateCreated, type.ownerName,
+            type.ownerAvatar, type.isBookmarked)
     }
 
-    override fun mapToCache(projectEntity: ProjectEntity): CachedProject {
-        return CachedProject(projectEntity.id, projectEntity.name, projectEntity.fullName,
-            projectEntity.starCount, projectEntity.dateCreated, projectEntity.ownerName,
-            projectEntity.ownerAvatar, projectEntity.isBookmarked)
+    override fun mapToCache(type: ProjectEntity): CachedProject {
+        return CachedProject(type.id, type.name, type.fullName,
+            type.starCount, type.dateCreated, type.ownerName,
+            type.ownerAvatar, type.isBookmarked)
     }
 }

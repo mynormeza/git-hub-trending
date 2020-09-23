@@ -74,7 +74,7 @@ class ProjectsCacheImpl @Inject constructor(
     override fun setLastTimeCache(lastCache: Long): Completable {
         return Completable.defer {
             projectsDatabase.configDao().insertConfig(
-                Config(lastCache)
+                Config(lastCacheTime =  lastCache)
             )
             Completable.complete()
         }
@@ -84,7 +84,7 @@ class ProjectsCacheImpl @Inject constructor(
         val currentTime = System.currentTimeMillis()
         val expirationTime = (60 * 10 * 1000).toLong()
         return projectsDatabase.configDao().getConfig()
-            .single(Config(0))
+            .single(Config(lastCacheTime = 0))
             .map {
                 currentTime - it.lastCacheTime > expirationTime
             }
