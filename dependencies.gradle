@@ -17,6 +17,7 @@ ext {
     retrofitVersion = '2.9.0'
     archTestingVersion = '2.1.0'
     roomVersion = '2.2.5'
+    androidLifecycleVersion = '2.2.0'
 
     //testing
     jUnitVersion = '4.12'
@@ -76,7 +77,6 @@ ext {
     cacheDependencies = [
             daggerCompiler: "com.google.dagger:dagger-compiler:${daggerVersion}",
             dagger: "com.google.dagger:dagger:${daggerVersion}",
-            gson: "com.google.code.gson:gson:${gsonVersion}",
             javaxAnnotation: "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
             javaxInject: "javax.inject:javax.inject:${javaxInjectVersion}",
             rxKotlin: "io.reactivex.rxjava2:rxkotlin:${rxKotlinVersion}",
@@ -96,6 +96,27 @@ ext {
             androidTestRules: "androidx.test:rules:${androidTestRulesVersion}",
             archTesting: "androidx.arch.core:core-testing:${archTestingVersion}",
             roomTesting: "androidx.room:room-testing:${roomVersion}",
+            robolectric: "org.robolectric:robolectric:${robolectricVersion}",
+    ]
+
+    presentationDependencies = [
+            daggerCompiler: "com.google.dagger:dagger-compiler:${daggerVersion}",
+            dagger: "com.google.dagger:dagger:${daggerVersion}",
+            javaxAnnotation: "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
+            javaxInject: "javax.inject:javax.inject:${javaxInjectVersion}",
+            rxKotlin: "io.reactivex.rxjava2:rxkotlin:${rxKotlinVersion}",
+            kotlin: "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${kotlinVersion}",
+            androidAnnotations: "androidx.annotation:annotation:${androidAnnotationsVersion}",
+            lifecycleRuntime: "androidx.lifecycle:lifecycle-runtime-ktx:${androidLifecycleVersion}",
+            lifecycleViewModel: "androidx.lifecycle:lifecycle-viewmodel-ktx:${androidLifecycleVersion}",
+            lifecycleCompiler: "androidx.lifecycle:lifecycle-compiler:${androidLifecycleVersion}"
+    ]
+
+    presentationTestDependencies = [
+            junit: "junit:junit:${jUnitVersion}",
+            mockito: "com.nhaarman.mockitokotlin2:mockito-kotlin:${mockitoKotlinVersion}",
+            assertj: "org.assertj:assertj-core:${assertJVersion}",
+            archTesting: "androidx.arch.core:core-testing:${archTestingVersion}",
             robolectric: "org.robolectric:robolectric:${robolectricVersion}",
     ]
 }
