@@ -32,6 +32,7 @@ dependencies {
     implementation presentationDependencies.rxKotlin
     implementation presentationDependencies.lifecycleRuntime
     implementation presentationDependencies.lifecycleViewModel
+    implementation presentationDependencies.lifecycleLiveData
     kapt presentationDependencies.lifecycleCompiler
 
     testImplementation presentationTestDependencies.junit

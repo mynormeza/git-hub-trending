@@ -109,6 +109,7 @@ ext {
             androidAnnotations: "androidx.annotation:annotation:${androidAnnotationsVersion}",
             lifecycleRuntime: "androidx.lifecycle:lifecycle-runtime-ktx:${androidLifecycleVersion}",
             lifecycleViewModel: "androidx.lifecycle:lifecycle-viewmodel-ktx:${androidLifecycleVersion}",
+            lifecycleLiveData: "androidx.lifecycle:lifecycle-livedata-ktx:${androidLifecycleVersion}",
             lifecycleCompiler: "androidx.lifecycle:lifecycle-compiler:${androidLifecycleVersion}"
     ]
 
