@@ -18,6 +18,11 @@ ext {
     archTestingVersion = '2.1.0'
     roomVersion = '2.2.5'
     androidLifecycleVersion = '2.2.0'
+    glideVersion = '4.11.0'
+    timberVersion = '4.7.1'
+    androidCoreVersion = '1.3.1'
+    androidCompatVersion = '1.2.0'
+    rxAndroidVersion = '2.1.1'
 
     //testing
     jUnitVersion = '4.12'
@@ -26,7 +31,7 @@ ext {
     robolectricVersion = '4.4'
     androidTestRunnerVersion = '1.1.0'
     androidTestRulesVersion = '1.1.0'
-
+    espressoVersion = '3.3.0'
     domainDependencies = [
             javaxAnnotation: "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
             javaxInject: "javax.inject:javax.inject:${javaxInjectVersion}",
@@ -119,5 +124,38 @@ ext {
             assertj: "org.assertj:assertj-core:${assertJVersion}",
             archTesting: "androidx.arch.core:core-testing:${archTestingVersion}",
             robolectric: "org.robolectric:robolectric:${robolectricVersion}",
+    ]
+
+    mobileUiDependencies = [
+            daggerCompiler: "com.google.dagger:dagger-compiler:${daggerVersion}",
+            dagger: "com.google.dagger:dagger:${daggerVersion}",
+            javaxAnnotation: "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
+            javaxInject: "javax.inject:javax.inject:${javaxInjectVersion}",
+            rxKotlin: "io.reactivex.rxjava2:rxkotlin:${rxKotlinVersion}",
+            rxAndroid: "io.reactivex.rxjava2:rxandroid:${rxAndroidVersion}",
+            kotlin: "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${kotlinVersion}",
+            androidAnnotations: "androidx.annotation:annotation:${androidAnnotationsVersion}",
+            roomRuntime: "androidx.room:room-runtime:${roomVersion}",
+            roomCompiler: "androidx.room:room-compiler:${roomVersion}",
+            roomRxJava: "androidx.room:room-rxjava2:${roomVersion}",
+            androidCore: "androidx.core:core-ktx:${androidCoreVersion}",
+            androidCompat: "androidx.appcompat:appcompat:${androidCompatVersion}",
+            timber: "com.jakewharton.timber:timber:${timberVersion}",
+            glide: "com.github.bumptech.glide:glide:${glideVersion}",
+            daggerSupportAndroid: "com.google.dagger:dagger-android-support:${daggerVersion}",
+            daggerAndroidProcessor: "com.google.dagger:dagger-android-processor:${daggerVersion}"
+    ]
+
+    mobileUiTestDependencies = [
+            junit: "junit:junit:${jUnitVersion}",
+            mockito: "com.nhaarman.mockitokotlin2:mockito-kotlin:${mockitoKotlinVersion}",
+            assertj: "org.assertj:assertj-core:${assertJVersion}",
+            kotlinJUnit: "org.jetbrains.kotlin:kotlin-test-junit:${kotlinVersion}",
+            androidTestRunner: "androidx.test:runner:${androidTestRunnerVersion}",
+            androidTestRules: "androidx.test:rules:${androidTestRulesVersion}",
+            archTesting: "androidx.arch.core:core-testing:${archTestingVersion}",
+            roomTesting: "androidx.room:room-testing:${roomVersion}",
+            robolectric: "org.robolectric:robolectric:${robolectricVersion}",
+            espressoCore: "androidx.test.espresso:espresso-core:${espressoVersion}"
     ]
 }

@@ -1,4 +1,4 @@
-package com.mynormeza.githubtrending
+package com.mynormeza.mobile_ui
 
 import org.junit.Test
 
