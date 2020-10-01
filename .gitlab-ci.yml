@@ -7,7 +7,7 @@ stages:
   - tag
 
 variables:
-  ANDROID_COMPILE_SDK: "30"
+  ANDROID_COMPILE_SDK: "29"
   ANDROID_BUILD_TOOLS: "30.0.0"
   ANDROID_SDK_TOOLS:   "6609375" # from https://developer.android.com/studio/#command-tools
   CMAKE:               "3.10.2.4988404"
