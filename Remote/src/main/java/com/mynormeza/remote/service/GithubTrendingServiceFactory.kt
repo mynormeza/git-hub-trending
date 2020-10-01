@@ -15,7 +15,7 @@ class GithubTrendingServiceFactory {
 
     private fun makeGithubTrendingService(okHttpClient: OkHttpClient): GithubTrendingService {
         val retrofit = Retrofit.Builder()
-            .baseUrl("")
+            .baseUrl("https://api.github.com/search/repositories/")
             .client(okHttpClient)
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .build()

@@ -2,8 +2,9 @@ package com.mynormeza.cache.mapper
 
 import com.mynormeza.cache.model.CachedProject
 import com.mynormeza.data.model.ProjectEntity
+import javax.inject.Inject
 
-class CachedProjectMapper: CacheMapper<CachedProject, ProjectEntity> {
+class CachedProjectMapper @Inject constructor(): CacheMapper<CachedProject, ProjectEntity> {
     override fun mapFromCache(type: CachedProject): ProjectEntity {
         return ProjectEntity(type.id, type.name, type.fullName,
             type.starCount, type.dateCreated, type.ownerName,

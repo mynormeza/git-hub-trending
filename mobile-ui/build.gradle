@@ -22,17 +22,23 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
     def mobileUiDependencies = rootProject.ext.mobileUiDependencies
     def mobileUiTestDependencies = rootProject.ext.mobileUiTestDependencies
 
-//    implementation 'com.android.support.constraint:constraint-layout:1.1.0'
     implementation project(':Presentation')
     implementation project(':Data')
     implementation project(':Remote')
     implementation project(':Cache')
+    implementation project(':Domain')
 
     implementation mobileUiDependencies.javaxAnnotation
     implementation mobileUiDependencies.kotlin
@@ -46,6 +52,14 @@ dependencies {
     implementation mobileUiDependencies.daggerSupportAndroid
     implementation mobileUiDependencies.androidCore
     implementation mobileUiDependencies.androidCompat
+    implementation mobileUiDependencies.lifecycleRuntime
+    implementation mobileUiDependencies.lifecycleViewModel
+    implementation mobileUiDependencies.lifecycleLiveData
+    kapt mobileUiDependencies.lifecycleCompiler
+
+    implementation mobileUiDependencies.roomRuntime
+    implementation mobileUiDependencies.roomRxJava
+    kapt mobileUiDependencies.roomCompiler
 
     testImplementation mobileUiTestDependencies.kotlinJUnit
 
