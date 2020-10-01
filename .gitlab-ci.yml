@@ -19,8 +19,8 @@ before_script:
   - wget --quiet --output-document=android-sdk.zip https://dl.google.com/android/repository/commandlinetools-linux-${ANDROID_SDK_TOOLS}_latest.zip
   - unzip -d cmdline-tools android-sdk.zip
   - mkdir cmdline-tools/licenses
-  - printf "8933bad161af4178b1185d1a37fbf41ea5269c55\nd56f5187479451eabf01fb78af6dfcb131a6481e" > android-sdk-linux/licenses/android-sdk-license
-  - printf "84831b9409646a918e30573bab4c9c91346d8abd" > android-sdk-linux/licenses/android-sdk-preview-license
+  - printf "8933bad161af4178b1185d1a37fbf41ea5269c55\nd56f5187479451eabf01fb78af6dfcb131a6481e" > cmdline-tools/licenses/android-sdk-license
+  - printf "84831b9409646a918e30573bab4c9c91346d8abd" > cmdline-tools/licenses/android-sdk-preview-license
   - echo yes | cmdline-tools/tools/bin/sdkmanager  "platforms;android-${ANDROID_COMPILE_SDK}" >/dev/null
   - echo yes | cmdline-tools/tools/bin/sdkmanager  "platform-tools" >/dev/null
   - echo yes | cmdline-tools/tools/bin/sdkmanager  "build-tools;${ANDROID_BUILD_TOOLS}" >/dev/null
