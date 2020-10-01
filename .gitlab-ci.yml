@@ -25,10 +25,10 @@ before_script:
   - echo yes | cmdline-tools/tools/bin/sdkmanager  "ndk-bundle" >/dev/null
   - echo yes | cmdline-tools/tools/bin/sdkmanager  "cmake;${CMAKE}" >/dev/null
 
-  - export ANDROID_SDK_ROOT=$PWD/cmdline-tools/S
+  - export ANDROID_SDK_ROOT=$PWD/cmdline-tools/
   - export CMAKE_HOME=$PWD/cmdline-tools/cmake/${CMAKE}/bin/
   - export PATH=$PATH:$PWD/cmdline-tools/platform-tools/:$CMAKE_HOME
-  - mkdir "$ANDROID_SDK_ROOT/licenses" || truex
+  - mkdir "$ANDROID_SDK_ROOT/licenses" || true
   - echo "24333f8a63b6825ea9c5514f83c2829b004d1fee" > "$ANDROID_HOME/licenses/android-sdk-license"
 
   - chmod +x ./gradlew
