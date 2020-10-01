@@ -18,11 +18,11 @@ before_script:
 
   - wget --quiet --output-document=android-sdk.zip https://dl.google.com/android/repository/commandlinetools-linux-${ANDROID_SDK_TOOLS}_latest.zip
   - unzip -d cmdline-tools android-sdk.zip
-  - echo y | cmdline-tools/tools/bin/sdkmanager  "platforms;android-${ANDROID_COMPILE_SDK}" >/dev/null
-  - echo y | cmdline-tools/tools/bin/sdkmanager  "platform-tools" >/dev/null
-  - echo y | cmdline-tools/tools/bin/sdkmanager  "build-tools;${ANDROID_BUILD_TOOLS}" >/dev/null
-  - echo y | cmdline-tools/tools/bin/sdkmanager  "ndk-bundle" >/dev/null
-  - echo y | cmdline-tools/tools/bin/sdkmanager  "cmake;${CMAKE}" >/dev/null
+  - echo yes | cmdline-tools/tools/bin/sdkmanager  "platforms;android-${ANDROID_COMPILE_SDK}" >/dev/null
+  - echo yes | cmdline-tools/tools/bin/sdkmanager  "platform-tools" >/dev/null
+  - echo yes | cmdline-tools/tools/bin/sdkmanager  "build-tools;${ANDROID_BUILD_TOOLS}" >/dev/null
+  - echo yes | cmdline-tools/tools/bin/sdkmanager  "ndk-bundle" >/dev/null
+  - echo yes | cmdline-tools/tools/bin/sdkmanager  "cmake;${CMAKE}" >/dev/null
 
   - export ANDROID_SDK_ROOT=$PWD/cmdline-tools/
   - export CMAKE_HOME=$PWD/cmdline-tools/cmake/${CMAKE}/bin/
