@@ -2,6 +2,7 @@ package com.mynormeza.cache.dao
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.room.Room
+import androidx.test.core.app.ApplicationProvider
 import com.mynormeza.cache.db.ProjectsDatabase
 import com.mynormeza.cache.test.factory.ProjectDataFactory
 import org.junit.After
@@ -18,7 +19,7 @@ class CachedProjectsDaoTest {
     @JvmField var instantTaskExecutorRule = InstantTaskExecutorRule()
 
     private val database = Room.inMemoryDatabaseBuilder(
-        RuntimeEnvironment.application.applicationContext, //TODO: remove deprecated
+        ApplicationProvider.getApplicationContext(), //TODO: remove deprecated
         ProjectsDatabase::class.java)
         .allowMainThreadQueries()
         .build()

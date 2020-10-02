@@ -99,6 +99,7 @@ ext {
             kotlinJUnit: "org.jetbrains.kotlin:kotlin-test-junit:${kotlinVersion}",
             androidTestRunner: "androidx.test:runner:${androidTestRunnerVersion}",
             androidTestRules: "androidx.test:rules:${androidTestRulesVersion}",
+            androidTestCore: "androidx.test:core:${androidTestRulesVersion}",
             archTesting: "androidx.arch.core:core-testing:${archTestingVersion}",
             roomTesting: "androidx.room:room-testing:${roomVersion}",
             robolectric: "org.robolectric:robolectric:${robolectricVersion}",

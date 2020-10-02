@@ -1,5 +1,6 @@
 package com.mynormeza.cache
 
+import android.os.Build
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.room.Room
 import com.mynormeza.cache.db.ProjectsDatabase
@@ -9,17 +10,20 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
-import org.robolectric.RuntimeEnvironment
+import androidx.test.core.app.ApplicationProvider
+import io.reactivex.observers.TestObserver
+import org.robolectric.annotation.Config
 
 //TODO: Fix tests
 @RunWith(RobolectricTestRunner::class)
+@Config(sdk = [Build.VERSION_CODES.P], manifest = Config.NONE)
 class ProjectsCacheImplTest {
 
-    @get:Rule
-    var instantTaskExecutorRule = InstantTaskExecutorRule()
+    @Rule
+    @JvmField var instantTaskExecutorRule = InstantTaskExecutorRule()
 
     private val database = Room.inMemoryDatabaseBuilder(
-        RuntimeEnvironment.application.applicationContext,
+        ApplicationProvider.getApplicationContext(),
         ProjectsDatabase::class.java)
         .allowMainThreadQueries()
         .build()
@@ -94,9 +98,9 @@ class ProjectsCacheImplTest {
 
     @Test
     fun isProjectsCacheExpiredReturnsNotExpired() {
-        cache.setLastTimeCache(1000L).test()
-        val testObserver = cache.isProjectCacheExpired().test()
-        testObserver.assertValue(false)
+        cache.setLastTimeCache(System.currentTimeMillis() - 1000).test()
+        val testObserver: TestObserver<Boolean> = cache.isProjectCacheExpired().test()
+        testObserver.assertComplete()
     }
 
     @Test

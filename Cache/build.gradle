@@ -45,4 +45,7 @@ dependencies {
     testImplementation cacheTestDependencies.archTesting
     testImplementation cacheTestDependencies.roomTesting
     testImplementation cacheTestDependencies.robolectric
+    testImplementation cacheTestDependencies.androidTestRules
+    testImplementation cacheTestDependencies.androidTestRunner
+    testImplementation cacheTestDependencies.androidTestCore
 }
