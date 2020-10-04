@@ -11,12 +11,10 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
 import androidx.test.core.app.ApplicationProvider
-import io.reactivex.observers.TestObserver
-import org.robolectric.annotation.Config
+import org.junit.After
 
 //TODO: Fix tests
 @RunWith(RobolectricTestRunner::class)
-@Config(sdk = [Build.VERSION_CODES.P], manifest = Config.NONE)
 class ProjectsCacheImplTest {
 
     @Rule
@@ -29,6 +27,11 @@ class ProjectsCacheImplTest {
         .build()
     private val entityMapper = CachedProjectMapper()
     private val cache = ProjectsCacheImpl(database, entityMapper)
+
+    @After
+    fun closeDb() {
+        database.close()
+    }
 
     @Test
     fun clearTablesCompletes() {
@@ -46,21 +49,22 @@ class ProjectsCacheImplTest {
 
     @Test
     fun getProjectsReturnsData() {
-        val projects = listOf(ProjectDataFactory.makeProjectEntity())
-        cache.saveProjects(projects).test()
+        val projects = ProjectDataFactory.makeProjectEntity()
+        cache.saveProjects(listOf(projects)).test()
 
         val testObserver = cache.getProjects().test()
-        testObserver.assertValueCount(1)
+        testObserver.assertValue(listOf(projects))
     }
 
     @Test
     fun getBookmarkedProjectsReturnsData() {
         val bookmarkedProject = ProjectDataFactory.makeBookmarkedProjectEntity()
-        val projects = listOf(ProjectDataFactory.makeProjectEntity(), bookmarkedProject)
+        val projects = listOf(ProjectDataFactory.makeProjectEntity(),
+            bookmarkedProject)
         cache.saveProjects(projects).test()
 
         val testObserver = cache.getBookmarkedProjects().test()
-        testObserver.assertValueCount(1)
+        testObserver.assertValue(listOf(bookmarkedProject))
     }
 
     @Test
@@ -99,14 +103,7 @@ class ProjectsCacheImplTest {
     @Test
     fun isProjectsCacheExpiredReturnsNotExpired() {
         cache.setLastTimeCache(System.currentTimeMillis() - 1000).test()
-        val testObserver: TestObserver<Boolean> = cache.isProjectCacheExpired().test()
-        testObserver.assertComplete()
-    }
-
-    @Test
-    fun isProjectsCacheExpiredReturnsExpired() {
         val testObserver = cache.isProjectCacheExpired().test()
-        testObserver.assertValue(true)
+        testObserver.assertValue(false)
     }
-
 }

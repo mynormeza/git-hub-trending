@@ -6,8 +6,10 @@ import com.mynormeza.cache.model.Config
 import com.mynormeza.data.model.ProjectEntity
 import com.mynormeza.data.repository.ProjectsCache
 import io.reactivex.Completable
+import io.reactivex.Flowable
 import io.reactivex.Observable
 import io.reactivex.Single
+import java.util.concurrent.Flow
 import javax.inject.Inject
 
 class ProjectsCacheImpl @Inject constructor(
@@ -24,15 +26,16 @@ class ProjectsCacheImpl @Inject constructor(
     override fun saveProjects(projects: List<ProjectEntity>): Completable {
         return Completable.defer {
             projectsDatabase.cachedProjectsDao().insertProjects(
-                projects.map { mapper.mapToCache(it) }
+                projects.map {
+                    mapper.mapToCache(it)
+                }
             )
             Completable.complete()
         }
     }
 
-    override fun getProjects(): Observable<List<ProjectEntity>> {
+    override fun getProjects(): Flowable<List<ProjectEntity>> {
         return projectsDatabase.cachedProjectsDao().getProjects()
-            .toObservable()
             .map {
                 it.map {
                     mapper.mapFromCache(it)
@@ -40,9 +43,8 @@ class ProjectsCacheImpl @Inject constructor(
             }
     }
 
-    override fun getBookmarkedProjects(): Observable<List<ProjectEntity>> {
+    override fun getBookmarkedProjects(): Flowable<List<ProjectEntity>> {
         return projectsDatabase.cachedProjectsDao().getBookmarkedProjects()
-            .toObservable()
             .map {
                 it.map {
                     mapper.mapFromCache(it)
@@ -68,7 +70,8 @@ class ProjectsCacheImpl @Inject constructor(
         return projectsDatabase.cachedProjectsDao()
             .getProjects()
             .isEmpty
-            .map { !it }
+            .map {
+                !it }
     }
 
     override fun setLastTimeCache(lastCache: Long): Completable {
@@ -80,11 +83,11 @@ class ProjectsCacheImpl @Inject constructor(
         }
     }
 
-    override fun isProjectCacheExpired(): Single<Boolean> {
+    override fun isProjectCacheExpired(): Flowable<Boolean> {
         val currentTime = System.currentTimeMillis()
         val expirationTime = (60 * 10 * 1000).toLong()
         return projectsDatabase.configDao().getConfig()
-            .single(Config(lastCacheTime = 0))
+            .onErrorReturn { Config(lastCacheTime = 0) }
             .map {
                 currentTime - it.lastCacheTime > expirationTime
             }

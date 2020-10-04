@@ -5,7 +5,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "projects")
-class CachedProject(
+data class CachedProject(
     @PrimaryKey @ColumnInfo(name = "project_id") val id: String,
     val name: String,
     val fullName: String,

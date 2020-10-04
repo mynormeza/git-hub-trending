@@ -48,4 +48,6 @@ dependencies {
     testImplementation cacheTestDependencies.androidTestRules
     testImplementation cacheTestDependencies.androidTestRunner
     testImplementation cacheTestDependencies.androidTestCore
+
+    androidTestImplementation cacheDependencies.androidAnnotations
 }

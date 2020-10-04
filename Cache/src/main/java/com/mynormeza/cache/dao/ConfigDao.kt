@@ -8,10 +8,10 @@ import com.mynormeza.cache.model.Config
 import io.reactivex.Flowable
 
 @Dao
-interface ConfigDao {
+abstract class ConfigDao {
     @Query("SELECT * FROM config")
-    fun getConfig(): Flowable<Config>
+    abstract fun getConfig(): Flowable<Config>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertConfig(config: Config)
+    abstract fun insertConfig(config: Config)
 }

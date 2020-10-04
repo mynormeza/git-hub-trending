@@ -19,7 +19,7 @@ class CachedProjectsDaoTest {
     @JvmField var instantTaskExecutorRule = InstantTaskExecutorRule()
 
     private val database = Room.inMemoryDatabaseBuilder(
-        ApplicationProvider.getApplicationContext(), //TODO: remove deprecated
+        ApplicationProvider.getApplicationContext(),
         ProjectsDatabase::class.java)
         .allowMainThreadQueries()
         .build()
@@ -32,11 +32,10 @@ class CachedProjectsDaoTest {
     @Test
     fun getProjectsReturnsData() {
         val project = ProjectDataFactory.makeCachedProject()
-        val list = mutableListOf(project)
-        database.cachedProjectsDao().insertProjects(list)
+        database.cachedProjectsDao().insertProjects(listOf(project))
 
         val testObserver = database.cachedProjectsDao().getProjects().test()
-        testObserver.assertValueCount(1)
+        testObserver.assertValue(listOf(project))
     }
 
     @Test
@@ -56,7 +55,7 @@ class CachedProjectsDaoTest {
         database.cachedProjectsDao().insertProjects(listOf(project, bookmarkedProject))
 
         val testObserver = database.cachedProjectsDao().getBookmarkedProjects().test()
-        testObserver.assertValueCount(1)
+        testObserver.assertValue(listOf(bookmarkedProject))
     }
 
     @Test
@@ -67,7 +66,7 @@ class CachedProjectsDaoTest {
         project.isBookmarked = true
 
         val testObserver = database.cachedProjectsDao().getBookmarkedProjects().test()
-        testObserver.assertValueCount(1)
+        testObserver.assertValue(listOf(project))
     }
 
     @Test

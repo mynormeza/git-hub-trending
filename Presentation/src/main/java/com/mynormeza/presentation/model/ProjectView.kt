@@ -1,6 +1,6 @@
 package com.mynormeza.presentation.model
 
-class ProjectView(
+data class ProjectView(
     val id: String,
     val name: String,
     val fullName: String,

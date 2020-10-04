@@ -2,6 +2,7 @@ package com.mynormeza.data.repository
 
 import com.mynormeza.data.model.ProjectEntity
 import io.reactivex.Completable
+import io.reactivex.Flowable
 import io.reactivex.Observable
 import io.reactivex.Single
 
@@ -10,9 +11,9 @@ interface ProjectsCache {
 
     fun saveProjects(projects: List<ProjectEntity>): Completable
 
-    fun getProjects(): Observable<List<ProjectEntity>>
+    fun getProjects(): Flowable<List<ProjectEntity>>
 
-    fun getBookmarkedProjects(): Observable<List<ProjectEntity>>
+    fun getBookmarkedProjects(): Flowable<List<ProjectEntity>>
 
     fun setProjectAsBookmarked(projectId: String): Completable
 
@@ -22,5 +23,5 @@ interface ProjectsCache {
 
     fun setLastTimeCache(lastCache: Long): Completable
 
-    fun isProjectCacheExpired(): Single<Boolean>
+    fun isProjectCacheExpired(): Flowable<Boolean>
 }

@@ -1,24 +1,27 @@
 package com.mynormeza.cache.dao
 
-import androidx.room.*
+import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
+import androidx.room.Query
 import com.mynormeza.cache.model.CachedProject
 import io.reactivex.Flowable
 
 @Dao
-interface CachedProjectDao {
+abstract class CachedProjectDao {
 
     @Query("SELECT * FROM projects")
-    fun getProjects(): Flowable<List<CachedProject>>
+    abstract fun getProjects(): Flowable<List<CachedProject>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertProjects(projects: List<CachedProject>)
+    abstract fun insertProjects(projects: List<CachedProject>)
 
     @Query("DELETE FROM projects")
-    fun deleteProjects()
+    abstract fun deleteProjects()
 
     @Query("SELECT * FROM projects WHERE is_bookmarked = 1")
-    fun getBookmarkedProjects(): Flowable<List<CachedProject>>
+    abstract fun getBookmarkedProjects(): Flowable<List<CachedProject>>
 
     @Query("UPDATE projects SET is_bookmarked = :isBookmarked WHERE project_id = :projectId")
-    fun setBookmarkStatus(isBookmarked: Boolean, projectId: String)
+    abstract fun setBookmarkStatus(isBookmarked: Boolean, projectId: String)
 }

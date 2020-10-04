@@ -4,6 +4,7 @@ import com.mynormeza.data.model.ProjectEntity
 import com.mynormeza.data.repository.ProjectsDataStore
 import com.mynormeza.data.repository.ProjectsRemote
 import io.reactivex.Completable
+import io.reactivex.Flowable
 import io.reactivex.Observable
 import java.lang.UnsupportedOperationException
 import javax.inject.Inject
@@ -11,11 +12,11 @@ import javax.inject.Inject
 open class ProjectsRemoteDataStore @Inject constructor(
     private val projectsRemote: ProjectsRemote
 ): ProjectsDataStore {
-    override fun getProjects(): Observable<List<ProjectEntity>> {
+    override fun getProjects(): Flowable<List<ProjectEntity>> {
         return projectsRemote.getProjects()
     }
 
-    override fun getBookmarkedProjects(): Observable<List<ProjectEntity>> {
+    override fun getBookmarkedProjects(): Flowable<List<ProjectEntity>> {
         throw UnsupportedOperationException("Get bookmarked projects is not supported by this class")
     }
 

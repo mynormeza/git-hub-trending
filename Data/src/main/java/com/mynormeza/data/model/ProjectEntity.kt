@@ -1,6 +1,6 @@
 package com.mynormeza.data.model
 
-class ProjectEntity(
+data class ProjectEntity(
     val id: String,
     val name: String,
     val fullName: String,

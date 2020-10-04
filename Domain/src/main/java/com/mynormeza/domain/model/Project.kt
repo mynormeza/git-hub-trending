@@ -1,6 +1,6 @@
 package com.mynormeza.domain.model
 
-class Project(
+data class Project(
     val id: String,
     val name: String,
     val fullName: String,

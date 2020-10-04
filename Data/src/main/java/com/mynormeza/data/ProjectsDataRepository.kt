@@ -6,6 +6,7 @@ import com.mynormeza.data.store.ProjectsDataStoreFactory
 import com.mynormeza.domain.model.Project
 import com.mynormeza.domain.repository.ProjectsRepository
 import io.reactivex.Completable
+import io.reactivex.Flowable
 import io.reactivex.Observable
 import io.reactivex.functions.BiFunction
 import javax.inject.Inject
@@ -24,7 +25,7 @@ class ProjectsDataRepository @Inject constructor(
                 Pair(areCached,isExpired)
             }
         ).flatMap {
-            factory.getDataStore(it.first, it.second).getProjects()
+            factory.getDataStore(it.first, it.second).getProjects().toObservable().distinctUntilChanged()
         }.flatMap {
             projects -> factory.getCacheDataStore()
             .saveProjects(projects)
@@ -45,7 +46,7 @@ class ProjectsDataRepository @Inject constructor(
     }
 
     override fun getBookmarkedProjects(): Observable<List<Project>> {
-        return factory.getCacheDataStore().getBookmarkedProjects()
+        return factory.getCacheDataStore().getBookmarkedProjects().toObservable()
             .map {
                 it.map {
                     mapper.mapFromEntity(it)
