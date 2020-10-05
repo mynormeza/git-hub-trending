@@ -9,8 +9,8 @@ import io.reactivex.Flowable
 
 @Dao
 abstract class ConfigDao {
-    @Query("SELECT * FROM config")
-    abstract fun getConfig(): Flowable<Config>
+    @Query("SELECT * FROM config LIMIT 1")
+    abstract fun getConfig(): Flowable<List<Config>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     abstract fun insertConfig(config: Config)

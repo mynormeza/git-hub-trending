@@ -7,7 +7,7 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface GithubTrendingService {
-    @GET("search")
+    @GET("search/repositories")
     fun searchRepositories(
         @Query("q") query: String,
         @Query("sort") sortBy: String,

@@ -2,11 +2,11 @@ package com.mynormeza.remote.model
 
 import com.google.gson.annotations.SerializedName
 
-data class ProjectModel(
-    val id: String,
+class ProjectModel(
+    val id: Int,
     val name: String,
     @SerializedName("full_name") val fullName: String,
-    @SerializedName("startgazers_count") val starCount: Int,
+    @SerializedName("stargazers_count") val starCount: Int,
     @SerializedName("created_at") val dateCreated: String,
-    val ownerModel: OwnerModel
+    @SerializedName("owner") val ownerModel: OwnerModel
 )

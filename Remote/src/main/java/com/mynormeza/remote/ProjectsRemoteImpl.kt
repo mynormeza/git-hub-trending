@@ -17,7 +17,8 @@ class ProjectsRemoteImpl @Inject constructor(
         return service.searchRepositories("language:kotlin", "stars", "desc")
             .map {
                 it.items.map {
-                    mapper.mapFromModel(it) }
+                    mapper.mapFromModel(it)
+                }
             }
     }
 }

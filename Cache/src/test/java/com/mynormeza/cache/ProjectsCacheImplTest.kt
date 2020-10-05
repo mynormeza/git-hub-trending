@@ -13,7 +13,6 @@ import org.robolectric.RobolectricTestRunner
 import androidx.test.core.app.ApplicationProvider
 import org.junit.After
 
-//TODO: Fix tests
 @RunWith(RobolectricTestRunner::class)
 class ProjectsCacheImplTest {
 
@@ -105,5 +104,11 @@ class ProjectsCacheImplTest {
         cache.setLastTimeCache(System.currentTimeMillis() - 1000).test()
         val testObserver = cache.isProjectCacheExpired().test()
         testObserver.assertValue(false)
+    }
+
+    @Test
+    fun isProjectsCacheExpiredReturnsExpired() {
+        val testObserver = cache.isProjectCacheExpired().test()
+        testObserver.assertValue(true)
     }
 }
