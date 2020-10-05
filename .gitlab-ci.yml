@@ -2,6 +2,7 @@ image: openjdk:8-jdk
 
 stages:
   - tag
+  - android
 
 variables:
   ANDROID_COMPILE_SDK: "30"
@@ -33,11 +34,21 @@ before_script:
   - yes | cmdline-tools/tools/bin/sdkmanager --licenses
   - set -o pipefail
 
+build:
+  stage: android
+  script:
+    - ./gradlew assembleDebug
+  artifacts:
+    paths:
+      - app/build/outputs/
+
 lint:
+  stage: android
   script:
     - ./gradlew -Pci --console=plain lintDebug -PbuildDir=lint
 
 unitTest:
+  stage: android
   script:
     - ./gradlew -Pci --console=plain testDebug
 
@@ -49,12 +60,6 @@ unitTest:
 #    - cmdline-tools/emulator/emulator -avd testAVD -no-audio -no-window &
 #    - ./gradlew connectedAndroidTest
 
-build:
-  script:
-    - ./gradlew assembleDebug
-  artifacts:
-    paths:
-      - app/build/outputs/
 
 semantic_release:
   stage: tag
