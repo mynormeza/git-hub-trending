@@ -1,8 +1,10 @@
 image: openjdk:8-jdk
 
 stages:
+  - linter
+  - test
+  - build
   - tag
-  - android
 
 variables:
   ANDROID_COMPILE_SDK: "30"
@@ -34,32 +36,32 @@ before_script:
   - yes | cmdline-tools/tools/bin/sdkmanager --licenses
   - set -o pipefail
 
-build:
-  stage: android
-  script:
-    - ./gradlew assembleDebug
-  artifacts:
-    paths:
-      - app/build/outputs/
-
 lint:
-  stage: android
+  stage: linter
   script:
     - ./gradlew -Pci --console=plain lintDebug -PbuildDir=lint
 
 unitTest:
-  stage: android
+  stage: test
   script:
     - ./gradlew -Pci --console=plain testDebug
 
-#instrumentationTest:
-#  script:
-#    - echo y | cmdline-tools/tools/bin/sdkmanager  "emulator" >/dev/null
-#    - echo y | cmdline-tools/tools/bin/sdkmanager "system-images;android-${ANDROID_COMPILE_SDK};google_apis;x86"
-#    - echo y | cmdline-tools/tools/bin/avdmanager create avd -f -n testAVD -k "system-images;android-${ANDROID_COMPILE_SDK};google_apis;x86"
-#    - cmdline-tools/emulator/emulator -avd testAVD -no-audio -no-window &
-#    - ./gradlew connectedAndroidTest
+instrumentationTest:
+  stage: test
+  script:
+    - echo y | cmdline-tools/tools/bin/sdkmanager  "emulator" >/dev/null
+    - echo y | cmdline-tools/tools/bin/sdkmanager "system-images;android-${ANDROID_COMPILE_SDK};google_apis;x86"
+    - echo y | cmdline-tools/tools/bin/avdmanager create avd -f -n testAVD -k "system-images;android-${ANDROID_COMPILE_SDK};google_apis;x86"
+    - cmdline-tools/emulator/emulator -avd testAVD -no-audio -no-window &
+    - ./gradlew connectedAndroidTest
 
+build:
+  stage: build
+  script:
+    - ./gradlew assembleDebug
+  artifacts:
+    paths:
+      - mobile-ui/build/outputs/
 
 semantic_release:
   stage: tag
