@@ -1,5 +1,8 @@
 image: openjdk:8-jdk
 
+stages:
+  - tag
+
 variables:
   ANDROID_COMPILE_SDK: "30"
   ANDROID_BUILD_TOOLS: "30.0.0"
@@ -52,9 +55,6 @@ build:
   artifacts:
     paths:
       - app/build/outputs/
-
-stages:
-  - tag
 
 semantic_release:
   stage: tag
