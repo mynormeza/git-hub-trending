@@ -1,5 +1,6 @@
 package com.mynormeza.presentation
 
+import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -15,7 +16,7 @@ import io.reactivex.observers.DisposableCompletableObserver
 import io.reactivex.observers.DisposableObserver
 import javax.inject.Inject
 
-open class BrowseProjectsViewModel @Inject internal constructor(
+open class BrowseProjectsViewModel @Inject constructor(
     private val getProjects: GetProjects?,
     private val bookmarkProject: BookmarkProject,
     private val unBookmarkProject: UnbookmarkProject,

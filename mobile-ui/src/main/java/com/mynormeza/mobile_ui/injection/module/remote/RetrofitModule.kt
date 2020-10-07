@@ -5,7 +5,9 @@ import com.mynormeza.remote.service.GithubTrendingService
 import com.mynormeza.remote.service.GithubTrendingServiceFactory
 import dagger.Module
 import dagger.Provides
+import dagger.hilt.migration.DisableInstallInCheck
 
+@DisableInstallInCheck
 @Module
 object RetrofitModule {
     @Provides

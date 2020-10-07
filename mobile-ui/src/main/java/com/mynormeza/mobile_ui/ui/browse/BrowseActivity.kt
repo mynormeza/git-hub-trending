@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -17,10 +18,11 @@ import com.mynormeza.presentation.BrowseProjectsViewModel
 import com.mynormeza.presentation.model.ProjectView
 import com.mynormeza.presentation.state.Resource
 import com.mynormeza.presentation.state.ResourceState
-import dagger.android.AndroidInjection
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_browse.*
 import javax.inject.Inject
 
+@AndroidEntryPoint
 class BrowseActivity : AppCompatActivity() {
     @Inject lateinit var browseAdapter: BrowseAdapter
     @Inject lateinit var mapper: ProjectViewMapper
@@ -30,7 +32,6 @@ class BrowseActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_browse)
-        AndroidInjection.inject(this)
 
         browseViewModel = ViewModelProvider(this, viewModelFactory)
             .get(BrowseProjectsViewModel::class.java)

@@ -8,8 +8,11 @@ import com.mynormeza.presentation.BrowseBookmarkedProjectsViewModel
 import com.mynormeza.presentation.BrowseProjectsViewModel
 import dagger.Binds
 import dagger.Module
+import dagger.hilt.InstallIn
+import dagger.hilt.android.components.ApplicationComponent
 import dagger.multibindings.IntoMap
 
+@InstallIn(ApplicationComponent::class)
 @Module
 abstract class PresentationModule {
 

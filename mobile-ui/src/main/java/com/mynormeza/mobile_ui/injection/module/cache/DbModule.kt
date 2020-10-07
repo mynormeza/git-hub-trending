@@ -4,7 +4,9 @@ import android.app.Application
 import com.mynormeza.cache.db.ProjectsDatabase
 import dagger.Module
 import dagger.Provides
+import dagger.hilt.migration.DisableInstallInCheck
 
+@DisableInstallInCheck
 @Module
 object DbModule {
     @Provides
