@@ -13,6 +13,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".ui.bookmarked.BookmarkedActivity"
+            android:parentActivityName=".ui.browse.BrowseActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.browse.BrowseActivity" />
+        </activity>
+        <activity
             android:name=".ui.browse.BrowseActivity"
             android:icon="@mipmap/ic_launcher"
             android:label="@string/app_name">

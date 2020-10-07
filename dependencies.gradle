@@ -32,6 +32,7 @@ ext {
     androidTestRunnerVersion = '1.1.0'
     androidTestRulesVersion = '1.1.0'
     espressoVersion = '3.3.0'
+
     domainDependencies = [
             javaxAnnotation: "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
             javaxInject: "javax.inject:javax.inject:${javaxInjectVersion}",
@@ -130,6 +131,7 @@ ext {
     mobileUiDependencies = [
             daggerCompiler: "com.google.dagger:dagger-compiler:${daggerVersion}",
             dagger: "com.google.dagger:dagger:${daggerVersion}",
+            daggerAndroid: "com.google.dagger:dagger-android:${daggerVersion}",
             javaxAnnotation: "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
             javaxInject: "javax.inject:javax.inject:${javaxInjectVersion}",
             rxKotlin: "io.reactivex.rxjava2:rxkotlin:${rxKotlinVersion}",
@@ -158,6 +160,7 @@ ext {
             kotlinJUnit: "org.jetbrains.kotlin:kotlin-test-junit:${kotlinVersion}",
             androidTestRunner: "androidx.test:runner:${androidTestRunnerVersion}",
             androidTestRules: "androidx.test:rules:${androidTestRulesVersion}",
+            androidTestCore: "androidx.test:core:${androidTestRulesVersion}",
             archTesting: "androidx.arch.core:core-testing:${archTestingVersion}",
             roomTesting: "androidx.room:room-testing:${roomVersion}",
             robolectric: "org.robolectric:robolectric:${robolectricVersion}",

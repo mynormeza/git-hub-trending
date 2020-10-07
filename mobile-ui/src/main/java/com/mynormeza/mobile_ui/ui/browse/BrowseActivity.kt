@@ -12,6 +12,7 @@ import com.mynormeza.mobile_ui.R
 import com.mynormeza.mobile_ui.injection.ViewModelFactory
 import com.mynormeza.mobile_ui.mapper.ProjectViewMapper
 import com.mynormeza.mobile_ui.model.Project
+import com.mynormeza.mobile_ui.ui.bookmarked.BookmarkedActivity
 import com.mynormeza.presentation.BrowseProjectsViewModel
 import com.mynormeza.presentation.model.ProjectView
 import com.mynormeza.presentation.state.Resource
@@ -56,7 +57,7 @@ class BrowseActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.action_bookmarked -> {
-//                startActivity(BookmarkedActivity.getStartIntent(this))
+                startActivity(BookmarkedActivity.getStartIntent(this))
                 true
             }
             else -> super.onOptionsItemSelected(item)

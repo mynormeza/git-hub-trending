@@ -3,6 +3,7 @@ package com.mynormeza.mobile_ui.injection.module
 import com.mynormeza.domain.executor.PostExecutionThread
 import com.mynormeza.mobile_ui.ui.browse.BrowseActivity
 import com.mynormeza.mobile_ui.UiThread
+import com.mynormeza.mobile_ui.ui.bookmarked.BookmarkedActivity
 import dagger.Binds
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
@@ -16,6 +17,6 @@ abstract class UiModule {
     @ContributesAndroidInjector
     abstract fun contributesBrowseActivity(): BrowseActivity
 
-//    @ContributesAndroidInjector
-//    abstract fun contributesBookmarkedActivity(): BookmarkedActivity
+    @ContributesAndroidInjector
+    abstract fun contributesBookmarkedActivity(): BookmarkedActivity
 }

@@ -13,7 +13,7 @@ android {
         minSdkVersion globalConfiguration["androidMinSdkVersion"]
         targetSdkVersion globalConfiguration["androidTargetSdkVersion"]
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "com.mynormeza.mobile_ui.test.TestRunner"
     }
 
     buildTypes {
@@ -72,6 +72,7 @@ dependencies {
     androidTestImplementation mobileUiTestDependencies.espressoCore
     androidTestImplementation mobileUiTestDependencies.androidTestRunner
     androidTestImplementation mobileUiTestDependencies.androidTestRules
+    testImplementation mobileUiTestDependencies.androidTestCore
 //    androidTestImplementation mobileUiTestDependencies.espressoIntents
 //    androidTestImplementation mobileUiTestDependencies.espressoContrib
 
