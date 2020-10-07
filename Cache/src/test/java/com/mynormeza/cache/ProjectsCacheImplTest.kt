@@ -1,6 +1,5 @@
 package com.mynormeza.cache
 
-import android.os.Build
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.room.Room
 import com.mynormeza.cache.db.ProjectsDatabase

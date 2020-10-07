@@ -6,6 +6,7 @@ import com.mynormeza.data.test.factory.DataFactory
 import com.mynormeza.data.test.factory.ProjectFactory
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
+import io.reactivex.BackpressureStrategy
 import io.reactivex.Observable
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -59,6 +60,6 @@ class ProjectsRemoteDataStoreTest {
 
     private fun stubRemoteGetProjects(observable: Observable<List<ProjectEntity>>) {
         whenever(remote.getProjects())
-            .thenReturn(observable)
+            .thenReturn(observable.toFlowable(BackpressureStrategy.LATEST))
     }
 }

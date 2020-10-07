@@ -11,6 +11,7 @@ import com.mynormeza.domain.model.Project
 import com.nhaarman.mockitokotlin2.any
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
+import io.reactivex.BackpressureStrategy
 import io.reactivex.Completable
 import io.reactivex.Observable
 import io.reactivex.Single
@@ -105,7 +106,7 @@ class ProjectsDataRepositoryTest {
 
     private fun stubIsCacheExpired(single: Single<Boolean>) {
         whenever(cache.isProjectCacheExpired())
-            .thenReturn(single)
+            .thenReturn(single.toFlowable())
     }
 
     private fun stubAreProjectsCached(single: Single<Boolean>) {
@@ -120,12 +121,12 @@ class ProjectsDataRepositoryTest {
 
     private fun stubGetProjects(observable: Observable<List<ProjectEntity>>) {
         whenever(store.getProjects())
-            .thenReturn(observable)
+            .thenReturn(observable.toFlowable(BackpressureStrategy.LATEST))
     }
 
     private fun stubGetBookmarkedProjects(observable: Observable<List<ProjectEntity>>) {
         whenever(store.getBookmarkedProjects())
-            .thenReturn(observable)
+            .thenReturn(observable.toFlowable(BackpressureStrategy.LATEST))
     }
 
     private fun stubFactoryGetDataStore() {

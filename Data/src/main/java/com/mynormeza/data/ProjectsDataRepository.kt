@@ -11,7 +11,7 @@ import io.reactivex.Observable
 import io.reactivex.functions.BiFunction
 import javax.inject.Inject
 
-class ProjectsDataRepository @Inject constructor(
+open class ProjectsDataRepository @Inject constructor(
     private val mapper: ProjectMapper,
     private val cache: ProjectsCache,
     private val factory: ProjectsDataStoreFactory

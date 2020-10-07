@@ -48,6 +48,7 @@ dependencies {
     testImplementation cacheTestDependencies.androidTestRules
     testImplementation cacheTestDependencies.androidTestRunner
     testImplementation cacheTestDependencies.androidTestCore
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
 
     androidTestImplementation cacheDependencies.androidAnnotations
 }
