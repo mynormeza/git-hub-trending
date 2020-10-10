@@ -85,6 +85,17 @@ dependencies {
     testImplementation mobileUiTestDependencies.androidTestCore
 //    androidTestImplementation mobileUiTestDependencies.espressoIntents
 //    androidTestImplementation mobileUiTestDependencies.espressoContrib
+    androidTestImplementation 'androidx.test.espresso:espresso-contrib:3.3.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-intents:3.3.0'
+
+    testImplementation 'com.google.dagger:hilt-android-testing:2.29-alpha'
+    // ...with Kotlin.
+    kaptTest 'com.google.dagger:hilt-android-compiler:2.29-alpha'
+    // For instrumented tests.
+    androidTestImplementation 'com.google.dagger:hilt-android-testing:2.29-alpha'
+    // ...with Kotlin.
+    kaptAndroidTest 'com.google.dagger:hilt-android-compiler:2.29-alpha'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
 
     kaptTest mobileUiDependencies.daggerCompiler
     kaptAndroidTest mobileUiDependencies.daggerCompiler
