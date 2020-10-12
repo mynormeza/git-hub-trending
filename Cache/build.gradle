@@ -1,0 +1,54 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+
+android {
+    def globalConfiguration = rootProject.project.extensions.getByName("ext")
+
+    compileSdkVersion globalConfiguration["androidCompileSdkVersion"]
+    buildToolsVersion globalConfiguration["androidBuildToolsVersion"]
+
+    defaultConfig {
+        minSdkVersion globalConfiguration["androidMinSdkVersion"]
+        targetSdkVersion globalConfiguration["androidTargetSdkVersion"]
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+
+    def cacheDependencies = rootProject.ext.cacheDependencies
+    def cacheTestDependencies = rootProject.ext.cacheTestDependencies
+
+    compileOnly cacheDependencies.javaxAnnotation
+
+    implementation project(":Data")
+
+    implementation cacheDependencies.kotlin
+    implementation cacheDependencies.javaxInject
+    implementation cacheDependencies.roomRuntime
+    implementation cacheDependencies.roomRxJava
+    implementation cacheDependencies.rxKotlin
+    kapt cacheDependencies.roomCompiler
+
+    testImplementation cacheTestDependencies.junit
+    testImplementation cacheTestDependencies.kotlinJUnit
+    testImplementation cacheTestDependencies.mockito
+    testImplementation cacheTestDependencies.assertj
+    testImplementation cacheTestDependencies.archTesting
+    testImplementation cacheTestDependencies.roomTesting
+    testImplementation cacheTestDependencies.robolectric
+    testImplementation cacheTestDependencies.androidTestRules
+    testImplementation cacheTestDependencies.androidTestRunner
+    testImplementation cacheTestDependencies.androidTestCore
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+
+    androidTestImplementation cacheDependencies.androidAnnotations
+}

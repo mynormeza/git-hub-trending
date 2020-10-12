@@ -1,6 +1,6 @@
 package com.mynormeza.data.model
 
-class ProjectEntity(
+data class ProjectEntity(
     val id: String,
     val name: String,
     val fullName: String,
@@ -8,5 +8,5 @@ class ProjectEntity(
     val dateCreated: String,
     val ownerName: String,
     val ownerAvatar: String,
-    val isBookmarked: Boolean
+    val isBookmarked: Boolean = false
 )
