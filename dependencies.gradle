@@ -6,5 +6,166 @@ ext {
     androidCompileSdkVersion = 30
     kotlinVersion = "1.4.10"
 
+    //libraries
+    rxKotlinVersion = '2.4.0'
+    javaxAnnotationVersion = '1.0'
+    javaxInjectVersion = '1'
+    androidAnnotationsVersion = '1.1.0'
+    daggerVersion = '2.29.1'
+    gsonVersion = '2.8.6'
+    okHttpVersion = '4.9.0'
+    retrofitVersion = '2.9.0'
+    archTestingVersion = '2.1.0'
+    roomVersion = '2.2.5'
+    androidLifecycleVersion = '2.2.0'
+    glideVersion = '4.11.0'
+    timberVersion = '4.7.1'
+    androidCoreVersion = '1.3.1'
+    androidCompatVersion = '1.2.0'
+    rxAndroidVersion = '2.1.1'
+    hiltVersion = '2.29-alpha'
+    hiltViewModelVersion = '1.0.0-alpha02'
 
+    //testing
+    jUnitVersion = '4.13'
+    assertJVersion = '3.17.2'
+    mockitoKotlinVersion = '2.2.0'
+    robolectricVersion = '4.4'
+    androidTestRunnerVersion = '1.1.0'
+    androidTestRulesVersion = '1.1.0'
+    espressoVersion = '3.3.0'
+
+    domainDependencies = [
+            javaxAnnotation: "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
+            javaxInject: "javax.inject:javax.inject:${javaxInjectVersion}",
+            rxKotlin: "io.reactivex.rxjava2:rxkotlin:${rxKotlinVersion}"
+    ]
+
+    domainTestDependencies = [
+            junit: "junit:junit:${jUnitVersion}",
+            mockito: "com.nhaarman.mockitokotlin2:mockito-kotlin:${mockitoKotlinVersion}",
+            assertj: "org.assertj:assertj-core:${assertJVersion}"
+    ]
+
+    dataDependencies = [
+            javaxAnnotation: "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
+            javaxInject: "javax.inject:javax.inject:${javaxInjectVersion}",
+            rxKotlin: "io.reactivex.rxjava2:rxkotlin:${rxKotlinVersion}",
+            kotlin: "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${kotlinVersion}"
+    ]
+
+    dataTestDependencies = [
+            junit: "junit:junit:${jUnitVersion}",
+            mockito: "com.nhaarman.mockitokotlin2:mockito-kotlin:${mockitoKotlinVersion}",
+            assertj: "org.assertj:assertj-core:${assertJVersion}",
+            kotlinJUnit: "org.jetbrains.kotlin:kotlin-test-junit:${kotlinVersion}"
+    ]
+
+    remoteDependencies = [
+            gson: "com.google.code.gson:gson:${gsonVersion}",
+            javaxAnnotation: "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
+            javaxInject: "javax.inject:javax.inject:${javaxInjectVersion}",
+            rxKotlin: "io.reactivex.rxjava2:rxkotlin:${rxKotlinVersion}",
+            kotlin: "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${kotlinVersion}",
+            androidAnnotations: "androidx.annotation:annotation:${androidAnnotationsVersion}",
+            okHttp: "com.squareup.okhttp3:okhttp:${okHttpVersion}",
+            okHttpLogger: "com.squareup.okhttp3:logging-interceptor:${okHttpVersion}",
+            retrofit: "com.squareup.retrofit2:retrofit:${retrofitVersion}",
+            retrofitConverter: "com.squareup.retrofit2:converter-gson:${retrofitVersion}",
+            retrofitAdapter: "com.squareup.retrofit2:adapter-rxjava2:${retrofitVersion}"
+    ]
+
+    remoteTestDependencies = [
+            junit: "junit:junit:${jUnitVersion}",
+            mockito: "com.nhaarman.mockitokotlin2:mockito-kotlin:${mockitoKotlinVersion}",
+            assertj: "org.assertj:assertj-core:${assertJVersion}",
+            kotlinJUnit: "org.jetbrains.kotlin:kotlin-test-junit:${kotlinVersion}",
+    ]
+
+    cacheDependencies = [
+            daggerCompiler: "com.google.dagger:dagger-compiler:${daggerVersion}",
+            dagger: "com.google.dagger:dagger:${daggerVersion}",
+            javaxAnnotation: "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
+            javaxInject: "javax.inject:javax.inject:${javaxInjectVersion}",
+            rxKotlin: "io.reactivex.rxjava2:rxkotlin:${rxKotlinVersion}",
+            kotlin: "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${kotlinVersion}",
+            androidAnnotations: "androidx.annotation:annotation:${androidAnnotationsVersion}",
+            roomRuntime: "androidx.room:room-runtime:${roomVersion}",
+            roomCompiler: "androidx.room:room-compiler:${roomVersion}",
+            roomRxJava: "androidx.room:room-rxjava2:${roomVersion}",
+    ]
+
+    cacheTestDependencies = [
+            junit: "junit:junit:${jUnitVersion}",
+            mockito: "com.nhaarman.mockitokotlin2:mockito-kotlin:${mockitoKotlinVersion}",
+            assertj: "org.assertj:assertj-core:${assertJVersion}",
+            kotlinJUnit: "org.jetbrains.kotlin:kotlin-test-junit:${kotlinVersion}",
+            androidTestRunner: "androidx.test:runner:${androidTestRunnerVersion}",
+            androidTestRules: "androidx.test:rules:${androidTestRulesVersion}",
+            androidTestCore: "androidx.test:core:${androidTestRulesVersion}",
+            archTesting: "androidx.arch.core:core-testing:${archTestingVersion}",
+            roomTesting: "androidx.room:room-testing:${roomVersion}",
+            robolectric: "org.robolectric:robolectric:${robolectricVersion}",
+    ]
+
+    presentationDependencies = [
+            daggerCompiler: "com.google.dagger:dagger-compiler:${daggerVersion}",
+            dagger: "com.google.dagger:dagger:${daggerVersion}",
+            javaxAnnotation: "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
+            javaxInject: "javax.inject:javax.inject:${javaxInjectVersion}",
+            rxKotlin: "io.reactivex.rxjava2:rxkotlin:${rxKotlinVersion}",
+            kotlin: "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${kotlinVersion}",
+            androidAnnotations: "androidx.annotation:annotation:${androidAnnotationsVersion}",
+            lifecycleRuntime: "androidx.lifecycle:lifecycle-runtime-ktx:${androidLifecycleVersion}",
+            lifecycleViewModel: "androidx.lifecycle:lifecycle-viewmodel-ktx:${androidLifecycleVersion}",
+            lifecycleLiveData: "androidx.lifecycle:lifecycle-livedata-ktx:${androidLifecycleVersion}",
+            lifecycleCompiler: "androidx.lifecycle:lifecycle-compiler:${androidLifecycleVersion}"
+    ]
+
+    presentationTestDependencies = [
+            junit: "junit:junit:${jUnitVersion}",
+            mockito: "com.nhaarman.mockitokotlin2:mockito-kotlin:${mockitoKotlinVersion}",
+            assertj: "org.assertj:assertj-core:${assertJVersion}",
+            archTesting: "androidx.arch.core:core-testing:${archTestingVersion}",
+            robolectric: "org.robolectric:robolectric:${robolectricVersion}",
+    ]
+
+    mobileUiDependencies = [
+            daggerCompiler: "com.google.dagger:dagger-compiler:${daggerVersion}",
+            dagger: "com.google.dagger:dagger:${daggerVersion}",
+            daggerAndroid: "com.google.dagger:dagger-android:${daggerVersion}",
+            javaxAnnotation: "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
+            javaxInject: "javax.inject:javax.inject:${javaxInjectVersion}",
+            rxKotlin: "io.reactivex.rxjava2:rxkotlin:${rxKotlinVersion}",
+            rxAndroid: "io.reactivex.rxjava2:rxandroid:${rxAndroidVersion}",
+            kotlin: "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${kotlinVersion}",
+            androidAnnotations: "androidx.annotation:annotation:${androidAnnotationsVersion}",
+            roomRuntime: "androidx.room:room-runtime:${roomVersion}",
+            roomCompiler: "androidx.room:room-compiler:${roomVersion}",
+            roomRxJava: "androidx.room:room-rxjava2:${roomVersion}",
+            androidCore: "androidx.core:core-ktx:${androidCoreVersion}",
+            androidCompat: "androidx.appcompat:appcompat:${androidCompatVersion}",
+            timber: "com.jakewharton.timber:timber:${timberVersion}",
+            glide: "com.github.bumptech.glide:glide:${glideVersion}",
+            daggerSupportAndroid: "com.google.dagger:dagger-android-support:${daggerVersion}",
+            daggerAndroidProcessor: "com.google.dagger:dagger-android-processor:${daggerVersion}",
+            lifecycleRuntime: "androidx.lifecycle:lifecycle-runtime-ktx:${androidLifecycleVersion}",
+            lifecycleViewModel: "androidx.lifecycle:lifecycle-viewmodel-ktx:${androidLifecycleVersion}",
+            lifecycleLiveData: "androidx.lifecycle:lifecycle-livedata-ktx:${androidLifecycleVersion}",
+            lifecycleCompiler: "androidx.lifecycle:lifecycle-compiler:${androidLifecycleVersion}"
+    ]
+
+    mobileUiTestDependencies = [
+            junit: "junit:junit:${jUnitVersion}",
+            mockito: "com.nhaarman.mockitokotlin2:mockito-kotlin:${mockitoKotlinVersion}",
+            assertj: "org.assertj:assertj-core:${assertJVersion}",
+            kotlinJUnit: "org.jetbrains.kotlin:kotlin-test-junit:${kotlinVersion}",
+            androidTestRunner: "androidx.test:runner:${androidTestRunnerVersion}",
+            androidTestRules: "androidx.test:rules:${androidTestRulesVersion}",
+            androidTestCore: "androidx.test:core:${androidTestRulesVersion}",
+            archTesting: "androidx.arch.core:core-testing:${archTestingVersion}",
+            roomTesting: "androidx.room:room-testing:${roomVersion}",
+            robolectric: "org.robolectric:robolectric:${robolectricVersion}",
+            espressoCore: "androidx.test.espresso:espresso-core:${espressoVersion}"
+    ]
 }
