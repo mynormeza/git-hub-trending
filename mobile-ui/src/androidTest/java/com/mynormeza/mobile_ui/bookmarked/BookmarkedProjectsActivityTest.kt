@@ -1,24 +1,26 @@
-package com.mynormeza.mobile_ui.browse
+package com.mynormeza.mobile_ui.bookmarked
 
 import androidx.lifecycle.Lifecycle
 import androidx.test.core.app.ActivityScenario
-import com.mynormeza.mobile_ui.ui.browse.BrowseActivity
+import androidx.test.ext.junit.runners.AndroidJUnit4
+import com.google.common.truth.Truth.assertThat
+import com.mynormeza.mobile_ui.ui.bookmarked.BookmarkedActivity
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import org.junit.Rule
 import org.junit.Test
-import com.google.common.truth.Truth.assertThat
+import org.junit.runner.RunWith
 
 @HiltAndroidTest
-class BrowseProjectsActivityTest {
-
-
+@RunWith(AndroidJUnit4::class)
+class BookmarkedProjectsActivityTest {
     @get:Rule
     var hiltRule = HiltAndroidRule(this)
 
+
     @Test
     fun verifyInjection() {
-        ActivityScenario.launch(BrowseActivity::class.java).use {
+        ActivityScenario.launch(BookmarkedActivity::class.java).use {
             it.moveToState(Lifecycle.State.CREATED)
             it.onActivity { activity ->
                 assertThat(activity.browseViewModel).isNotNull()
