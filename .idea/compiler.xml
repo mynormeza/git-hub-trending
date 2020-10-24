@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
-    <bytecodeTargetLevel>
+    <bytecodeTargetLevel target="1.7">
       <module name="Data" target="1.7" />
       <module name="Domain" target="1.7" />
+      <module name="GitHub_Trending.Cache" target="1.8" />
+      <module name="GitHub_Trending.mobile-ui" target="1.8" />
+      <module name="GitHub_Trending.Presentation" target="1.8" />
+      <module name="GitHub_Trending.Remote" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
