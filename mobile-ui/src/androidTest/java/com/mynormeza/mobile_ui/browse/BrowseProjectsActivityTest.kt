@@ -1,5 +1,7 @@
 package com.mynormeza.mobile_ui.browse
 
+import androidx.lifecycle.Lifecycle
+import androidx.test.core.app.ActivityScenario
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.contrib.RecyclerViewActions
@@ -25,8 +27,8 @@ import org.junit.Test
 import org.junit.rules.RuleChain
 import org.junit.runner.RunWith
 import javax.inject.Inject
+import com.google.common.truth.Truth.assertThat
 
-@UninstallModules(DataModule::class)
 @HiltAndroidTest
 class BrowseProjectsActivityTest {
 
@@ -34,35 +36,16 @@ class BrowseProjectsActivityTest {
     @get:Rule
     var hiltRule = HiltAndroidRule(this)
 
-//    @get:Rule
-//    var activityRule: ActivityScenarioRule<BrowseActivity>
-//            = ActivityScenarioRule(BrowseActivity::class.java)
-
-    @Inject
-    lateinit var repo: ProjectsRepository
-
-    @Before
-    fun setup() {
-        hiltRule.inject()
-    }
-
     @Test
-    fun projectsDisplay() {
-        val projects = listOf(ProjectDataFactory.makeProject(),
-            ProjectDataFactory.makeProject(), ProjectDataFactory.makeProject())
-        stubProjectsRepositoryGetProjects(Observable.just(projects))
-
-        projects.forEachIndexed { index, project ->
-            onView(withId(R.id.recycler_projects))
-                .perform(RecyclerViewActions.scrollToPosition<BrowseAdapter.ViewHolder>(index))
-
-            onView(withId(R.id.recycler_projects))
-                .check(matches(hasDescendant(withText(project.fullName))))
+    fun verifyInjection() {
+        ActivityScenario.launch(BrowseActivity::class.java).use {
+            it.moveToState(Lifecycle.State.CREATED)
+            it.onActivity { activity ->
+                assertThat(activity.browseViewModel).isNotNull()
+                activity.browseViewModel.projects.observe(activity) { repos ->
+                    assertThat(repos).isNotNull()
+                }
+            }
         }
-    }
-
-    private fun stubProjectsRepositoryGetProjects(observable: Observable<List<Project>>) {
-        whenever(repo.getProjects())
-            .thenReturn(observable)
     }
 }
