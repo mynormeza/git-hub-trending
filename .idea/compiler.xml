@@ -4,6 +4,7 @@
     <bytecodeTargetLevel target="1.7">
       <module name="Data" target="1.7" />
       <module name="Domain" target="1.7" />
+      <module name="GitHub_Trending.buildSrc" target="1.8" />
       <module name="GitHub_Trending.Cache" target="1.8" />
       <module name="GitHub_Trending.mobile-ui" target="1.8" />
       <module name="GitHub_Trending.Presentation" target="1.8" />
