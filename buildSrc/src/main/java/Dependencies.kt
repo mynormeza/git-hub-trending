@@ -5,6 +5,9 @@ object Versions {
     const val androidCompileSdkVersion = 30
     const val kotlinVersion = "1.4.10"
 
+    const val activityExtVersion = "1.1.0"
+    const val constraintLayoutVersion = "2.0.4"
+    const val recyclerViewVersion = "1.1.0"
     const val rxKotlinVersion = "2.4.0"
     const val javaxAnnotationVersion = "1.0"
     const val javaxInjectVersion = "1"
@@ -23,6 +26,7 @@ object Versions {
     const val rxAndroidVersion = "2.1.1"
     const val hiltVersion = "2.29-alpha"
     const val hiltViewModelVersion = "1.0.0-alpha02"
+    const val hiltCompiler = "1.0.0-alpha02"
 
     const val jUnitVersion = "4.13"
     const val assertJVersion = "3.17.2"
@@ -31,6 +35,8 @@ object Versions {
     const val androidTestRunnerVersion = "1.1.0"
     const val androidTestRulesVersion = "1.1.0"
     const val espressoVersion = "3.3.0"
+    const val androidTestExtVersion = "1.1.2"
+    const val googleTruthVersion = "1.1"
 }
 
 object Dependencies {
@@ -39,12 +45,19 @@ object Dependencies {
     const val rxKotlin = "io.reactivex.rxjava2:rxkotlin:${Versions.rxKotlinVersion}"
     const val kotlin = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.kotlinVersion}"
 
+    const val activityExt = "androidx.activity:activity-ktx:${Versions.activityExtVersion}"
+    const val constraintLayout = "androidx.constraintlayout:constraintlayout:${Versions.constraintLayoutVersion}"
+    const val recyclerView = "androidx.recyclerview:recyclerview:${Versions.recyclerViewVersion}"
     const val gson = "com.google.code.gson:gson:${Versions.gsonVersion}"
     const val okHttp = "com.squareup.okhttp3:okhttp:${Versions.okHttpVersion}"
     const val okHttpLogger = "com.squareup.okhttp3:logging-interceptor:${Versions.okHttpVersion}"
     const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofitVersion}"
     const val retrofitConverter = "com.squareup.retrofit2:converter-gson:${Versions.retrofitVersion}"
     const val retrofitAdapter = "com.squareup.retrofit2:adapter-rxjava2:${Versions.retrofitVersion}"
+    const val hilt = "com.google.dagger:hilt-android:${Versions.hiltVersion}"
+    const val hiltViewModel = "androidx.hilt:hilt-lifecycle-viewmodel:${Versions.hiltViewModelVersion}"
+    const val hiltCompiler = "androidx.hilt:hilt-compiler:${Versions.hiltCompiler}"
+    const val hiltAndroidCompiler = "com.google.dagger:hilt-android-compiler:${Versions.hiltVersion}"
     const val daggerCompiler= "com.google.dagger:dagger-compiler:${Versions.daggerVersion}"
     const val dagger= "com.google.dagger:dagger:${Versions.daggerVersion}"
     const val androidAnnotations= "androidx.annotation:annotation:${Versions.androidAnnotationsVersion}"
@@ -76,4 +89,9 @@ object Dependencies {
     const val roomTesting = "androidx.room:room-testing:${Versions.roomVersion}"
     const val robolectric = "org.robolectric:robolectric:${Versions.robolectricVersion}"
     const val espressoCore = "androidx.test.espresso:espresso-core:${Versions.espressoVersion}"
+    const val androidTestExt = "androidx.test.ext:junit:${Versions.androidTestExtVersion}"
+    const val hiltTest = "com.google.dagger:hilt-android-testing:${Versions.hiltVersion}"
+    const val espressoContrib = "androidx.test.espresso:espresso-contrib:${Versions.espressoVersion}"
+    const val espressoIntents = "androidx.test.espresso:espresso-intents:${Versions.espressoVersion}"
+    const val googleTruth = "com.google.truth:truth:${Versions.googleTruthVersion}"
 }

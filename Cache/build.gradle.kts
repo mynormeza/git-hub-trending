@@ -45,7 +45,7 @@ dependencies {
     testImplementation(Dependencies.androidTestRules)
     testImplementation(Dependencies.androidTestRunner)
     testImplementation(Dependencies.androidTestCore)
-    androidTestImplementation("androidx.test.ext:junit:1.1.2")
+    androidTestImplementation(Dependencies.androidTestExt)
 
     androidTestImplementation(Dependencies.androidAnnotations)
 }

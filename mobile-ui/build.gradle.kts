@@ -36,15 +36,14 @@ android {
 }
 
 dependencies {
-    implementation("androidx.constraintlayout:constraintlayout:2.0.1")
-    implementation("androidx.recyclerview:recyclerview:1.1.0")
-
     implementation(project(":Presentation"))
     implementation(project(":Data"))
     implementation(project(":Remote"))
     implementation(project(":Cache"))
     implementation(project(":Domain"))
 
+    implementation(Dependencies.constraintLayout)
+    implementation(Dependencies.recyclerView)
     implementation(Dependencies.javaxAnnotation)
     implementation(Dependencies.kotlin)
     implementation(Dependencies.javaxInject)
@@ -53,11 +52,9 @@ dependencies {
     implementation(Dependencies.timber)
     implementation(Dependencies.rxAndroid)
     implementation(Dependencies.glide)
-    implementation("com.google.dagger:hilt-android:${Versions.hiltVersion}")
-    kapt("com.google.dagger:hilt-android-compiler:${Versions.hiltVersion}")
-    implementation("androidx.activity:activity-ktx:1.1.0")
-    implementation("androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha02")
-    kapt("androidx.hilt:hilt-compiler:1.0.0-alpha02")
+    implementation(Dependencies.hilt)
+    implementation(Dependencies.activityExt)
+    implementation(Dependencies.hiltViewModel)
     implementation(Dependencies.dagger)
     implementation(Dependencies.daggerSupportAndroid)
     implementation(Dependencies.androidCore)
@@ -65,16 +62,19 @@ dependencies {
     implementation(Dependencies.lifecycleRuntime)
     implementation(Dependencies.lifecycleViewModel)
     implementation(Dependencies.lifecycleLiveData)
-    kapt(Dependencies.lifecycleCompiler)
-
     implementation(Dependencies.roomRuntime)
     implementation(Dependencies.roomRxJava)
-    kapt(Dependencies.roomCompiler)
 
-    testImplementation(Dependencies.kotlinJUnit)
-
+    kapt(Dependencies.hiltCompiler)
+    kapt(Dependencies.lifecycleCompiler)
+    kapt(Dependencies.hiltAndroidCompiler)
     kapt(Dependencies.daggerCompiler)
     kapt(Dependencies.daggerAndroidProcessor)
+    kapt(Dependencies.roomCompiler)
+
+    testImplementation(Dependencies.androidTestCore)
+    testImplementation(Dependencies.kotlinJUnit)
+    testImplementation(Dependencies.hiltTest)
 
     // Instrumentation test dependencies
     androidTestImplementation(Dependencies.junit)
@@ -82,23 +82,14 @@ dependencies {
     androidTestImplementation(Dependencies.espressoCore)
     androidTestImplementation(Dependencies.androidTestRunner)
     androidTestImplementation(Dependencies.androidTestRules)
-    testImplementation(Dependencies.androidTestCore)
-//    androidTestImplementation mobileUiTestDependencies.espressoIntents
-//    androidTestImplementation mobileUiTestDependencies.espressoContrib
-    androidTestImplementation("androidx.test.espresso:espresso-contrib:3.3.0")
-    androidTestImplementation("androidx.test.espresso:espresso-intents:3.3.0")
-    androidTestImplementation("com.google.truth:truth:1.1")
-
-    testImplementation("com.google.dagger:hilt-android-testing:2.29-alpha")
-    // ...with Kotlin.
-    kaptTest("com.google.dagger:hilt-android-compiler:2.29-alpha")
-    // For instrumented tests.
-    androidTestImplementation("com.google.dagger:hilt-android-testing:2.29-alpha")
-    // ...with Kotlin.
-    kaptAndroidTest("com.google.dagger:hilt-android-compiler:2.29-alpha")
-    androidTestImplementation("androidx.test.ext:junit:1.1.2")
+    androidTestImplementation(Dependencies.espressoContrib)
+    androidTestImplementation(Dependencies.espressoIntents)
+    androidTestImplementation(Dependencies.googleTruth)
+    androidTestImplementation(Dependencies.hiltTest)
+    androidTestImplementation(Dependencies.androidTestExt)
 
     kaptTest(Dependencies.daggerCompiler)
     kaptAndroidTest(Dependencies.daggerCompiler)
-
+    kaptTest(Dependencies.hiltAndroidCompiler)
+    kaptAndroidTest(Dependencies.hiltAndroidCompiler)
 }
